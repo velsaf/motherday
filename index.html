@@ -18,33 +18,35 @@
             min-height: 100vh;
             overflow-x: hidden;
             line-height: 1.6;
+            padding: 10px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
 
         header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 25px 0 15px;
             animation: fadeInDown 1.5s ease-out;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
             color: #8b5a9f;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
             font-weight: normal;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
         }
 
         .subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 4vw, 1.3rem);
             color: #7a4988;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-style: italic;
         }
 
@@ -52,33 +54,38 @@
             color: #c44569;
             display: inline-block;
             animation: heartbeat 2s infinite;
-            margin: 0 5px;
+            margin: 0 3px;
         }
 
         .message {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             animation: fadeInUp 1.5s ease-out;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 4vw, 1.1rem);
             border-left: 4px solid #c44569;
+            text-align: center;
+        }
+
+        .message p {
+            margin-bottom: 12px;
         }
 
         .gallery-container {
             position: relative;
-            margin: 50px 0;
+            margin: 30px 0;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             animation: fadeIn 2s ease-out;
         }
 
         .carousel {
             display: flex;
-            transition: transform 0.8s ease-in-out;
-            height: 500px;
+            transition: transform 0.6s ease-in-out;
+            height: clamp(250px, 50vh, 400px);
         }
 
         .carousel-item {
@@ -94,7 +101,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 15px;
+            border-radius: 12px;
         }
 
         .carousel-controls {
@@ -104,23 +111,23 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .carousel-btn {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            font-size: 22px;
+            font-size: 18px;
             color: #8b5a9f;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
         }
 
         .carousel-btn:hover {
@@ -132,13 +139,13 @@
         .carousel-indicators {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
+            margin: 15px 0 10px;
+            gap: 8px;
         }
 
         .indicator {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: rgba(139, 90, 159, 0.4);
             cursor: pointer;
@@ -152,15 +159,35 @@
 
         .photo-counter {
             text-align: center;
-            margin-top: 15px;
+            margin: 10px 0 5px;
             color: #7a4988;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
+        .loading {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7a4988;
+            font-size: 1rem;
+        }
+
+        .mobile-optimized {
+            display: block;
+        }
+
+        .touch-hint {
+            text-align: center;
+            color: #8b5a9f;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        /* Анимации */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -171,7 +198,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -200,28 +227,81 @@
             }
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
+        /* Улучшения для мобильных устройств */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
             }
-
-            .subtitle {
-                font-size: 1.1rem;
+            
+            .container {
+                padding: 10px;
             }
-
-            .carousel {
-                height: 350px;
+            
+            header {
+                padding: 15px 0 10px;
             }
-
+            
             .message {
-                padding: 20px;
-                font-size: 1rem;
+                padding: 15px;
+                margin: 15px 0;
             }
-
+            
             .carousel-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+            
+            .gallery-container {
+                margin: 20px 0;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .message {
+                padding: 12px;
+            }
+            
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+            
+            .carousel-controls {
+                padding: 0 5px;
+            }
+        }
+
+        /* Поддержка ориентации */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .container {
+                max-width: 95%;
+            }
+            
+            .carousel {
+                height: 60vh;
+            }
+            
+            header {
+                padding: 10px 0;
+            }
+            
+            .message {
+                margin: 10px 0;
+                padding: 15px;
+            }
+        }
+
+        /* Улучшения для тач-устройств */
+        @media (hover: none) and (pointer: coarse) {
+            .carousel-btn {
+                background: rgba(255, 255, 255, 0.9);
+            }
+            
+            .indicator {
+                width: 12px;
+                height: 12px;
             }
         }
     </style>
@@ -229,20 +309,20 @@
 <body>
     <div class="container">
         <header>
-            <h1>День Матери <span class="heart">❤</span></h1>
-            <p class="subtitle">Благодарность без границ</p>
+            <h1>С Днём Матери! <span class="heart">❤</span></h1>
+            <p class="subtitle">Мама, ты лучшая!</p>
         </header>
 
         <section class="message">
-            <p>Мама — это тот человек, чья любовь к нам начинается еще до нашего первого вздоха и длится вечно. В этот день хочется сказать тебе простые, но важные слова.</p>
-            <p>Спасибо за твоё терпение, когда я учился ходить и падал, за твои бессонные ночи у моей кровати, за веру в меня, даже когда я сам в себя не верил.</p>
-            <p>Ты научила меня не только говорить и ходить, но и видеть красоту в обычном, находить силы в трудные моменты, ценить искренность и быть человеком.</p>
-            <p>Пусть в твоей жизни будет больше моментов, когда ты можешь просто отдыхать и наслаждаться заслуженным покоем. Ты этого достойна как никто другой.</p>
+            <p>Мама! Поздравляю с Днем Матери!</p>
+            <p>В этот день, я хочу пожелать тебе всего самого наилучшего.</p>
+            <p>Прости, когда я огорчаю тебя, я знаю что ты всегда меня поддержишь и поможешь!</p>
+            <p>Ты лучшая мама на свете!</p>
         </section>
 
         <div class="gallery-container">
             <div class="carousel" id="carousel">
-                <!-- Фотографии будут загружены автоматически -->
+                <div class="loading">Загрузка фотографий...</div>
             </div>
             <div class="carousel-controls">
                 <button class="carousel-btn" id="prevBtn">❮</button>
@@ -252,6 +332,7 @@
                 <!-- Индикаторы будут созданы автоматически -->
             </div>
             <div class="photo-counter" id="photoCounter"></div>
+            <div class="touch-hint">Листайте влево/вправо</div>
         </div>
     </div>
 
@@ -262,41 +343,46 @@
             const nextBtn = document.getElementById('nextBtn');
             const indicatorsContainer = document.getElementById('indicators');
             const photoCounter = document.getElementById('photoCounter');
-
+            
             let currentIndex = 0;
             let photos = [];
             let intervalId;
-
+            let startX = 0;
+            let endX = 0;
+            
+            // Список файлов из вашей папки photos
+            const photoFiles = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+            
             // Функция для загрузки фотографий из папки /photos/
-            async function loadPhotos() {
+            function loadPhotos() {
                 try {
-                    // В реальном проекте здесь был бы запрос к серверу для получения списка фото
-                    // Для демонстрации создадим массив с именами файлов
-                    // В реальном проекте замените этот массив на реальные имена файлов из папки /photos/
-                    const photoFiles = [
-                        'photo1.jpg',
-                        'photo2.jpg',
-                        'photo3.jpg',
-                        'photo4.jpg'
-                    ];
-
+                    // Очищаем карусель
+                    carousel.innerHTML = '';
+                    indicatorsContainer.innerHTML = '';
+                    
                     // Создаем элементы для карусели
                     photoFiles.forEach((file, index) => {
                         const carouselItem = document.createElement('div');
                         carouselItem.className = 'carousel-item';
-
+                        
                         const img = document.createElement('img');
-                        img.src = `/photos/${file}`;
+                        img.src = `photos/${file}`;
                         img.alt = `Фотография ${index + 1}`;
-
+                        img.loading = 'lazy';
+                        
                         // Добавляем заглушку, если фото не загрузилось
                         img.onerror = function() {
+                            console.error(`Ошибка загрузки: photos/${file}`);
                             this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjQwMCIgeT0iMzAwIiBmb250LWZhbWlseT0iR2VvcmdpYSIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2NjYyI+0J/RgNC+0YTQuNC70Yw8L3RleHQ+PC9zdmc+';
                         };
-
+                        
+                        img.onload = function() {
+                            console.log(`Успешно загружено: photos/${file}`);
+                        };
+                        
                         carouselItem.appendChild(img);
                         carousel.appendChild(carouselItem);
-
+                        
                         // Создаем индикатор
                         const indicator = document.createElement('div');
                         indicator.className = 'indicator';
@@ -304,89 +390,130 @@
                         indicator.addEventListener('click', () => goToSlide(index));
                         indicatorsContainer.appendChild(indicator);
                     });
-
+                    
                     photos = document.querySelectorAll('.carousel-item');
-
+                    
+                    if (photos.length === 0) {
+                        carousel.innerHTML = '<div class="loading">Фотографии не найдены в папке photos/</div>';
+                        return;
+                    }
+                    
                     // Обновляем счетчик фото
                     updatePhotoCounter();
-
+                    
                     // Запускаем автоматическую смену слайдов
                     startAutoSlide();
-
+                    
+                    console.log(`Загружено ${photos.length} фотографий`);
+                    
                 } catch (error) {
                     console.error('Ошибка загрузки фотографий:', error);
-                    // Если фото не загрузились, показываем сообщение
-                    carousel.innerHTML = '<div class="carousel-item"><p style="text-align: center; padding: 50px; font-size: 1.2rem;">Добавьте фотографии в папку /photos/</p></div>';
+                    carousel.innerHTML = '<div class="loading">Ошибка загрузки фотографий</div>';
                 }
             }
-
+            
             // Функция для обновления счетчика фото
             function updatePhotoCounter() {
-                photoCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+                if (photos.length > 0) {
+                    photoCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+                }
             }
-
+            
             // Функция для перехода к определенному слайду
             function goToSlide(index) {
                 currentIndex = index;
                 updateCarousel();
             }
-
+            
             // Функция для обновления карусели
             function updateCarousel() {
-                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                // Обновляем активный индикатор
-                document.querySelectorAll('.indicator').forEach((indicator, index) => {
-                    if (index === currentIndex) {
-                        indicator.classList.add('active');
-                    } else {
-                        indicator.classList.remove('active');
-                    }
-                });
-
-                // Обновляем счетчик
-                updatePhotoCounter();
+                if (photos.length > 0) {
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    // Обновляем активный индикатор
+                    document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                    
+                    // Обновляем счетчик
+                    updatePhotoCounter();
+                }
             }
-
+            
             // Функция для перехода к следующему слайду
             function nextSlide() {
-                currentIndex = (currentIndex + 1) % photos.length;
-                updateCarousel();
+                if (photos.length > 0) {
+                    currentIndex = (currentIndex + 1) % photos.length;
+                    updateCarousel();
+                }
             }
-
+            
             // Функция для перехода к предыдущему слайду
             function prevSlide() {
-                currentIndex = (currentIndex - 1 + photos.length) % photos.length;
-                updateCarousel();
+                if (photos.length > 0) {
+                    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+                    updateCarousel();
+                }
             }
-
+            
             // Функция для запуска автоматической смены слайдов
             function startAutoSlide() {
-                intervalId = setInterval(nextSlide, 5000); // Смена каждые 5 секунд
+                if (photos.length > 1) {
+                    intervalId = setInterval(nextSlide, 5000);
+                }
             }
-
+            
             // Функция для остановки автоматической смены слайдов
             function stopAutoSlide() {
                 clearInterval(intervalId);
             }
-
+            
             // Обработчики событий для кнопок
             prevBtn.addEventListener('click', () => {
                 stopAutoSlide();
                 prevSlide();
                 startAutoSlide();
             });
-
+            
             nextBtn.addEventListener('click', () => {
                 stopAutoSlide();
                 nextSlide();
                 startAutoSlide();
             });
-
+            
             // Останавливаем автоматическую смену при наведении на карусель
             carousel.addEventListener('mouseenter', stopAutoSlide);
             carousel.addEventListener('mouseleave', startAutoSlide);
-
+            
+            // Добавляем обработчики свайпов для мобильных устройств
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            carousel.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    stopAutoSlide();
+                    if (diff > 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                    startAutoSlide();
+                }
+            }
+            
             // Загружаем фотографии
             loadPhotos();
         });

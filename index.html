@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Матери</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fef7ff, #f0f9ff);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #8b5a9f;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #7a4988;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .heart {
+            color: #c44569;
+            display: inline-block;
+            animation: heartbeat 2s infinite;
+            margin: 0 5px;
+        }
+
+        .message {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            animation: fadeInUp 1.5s ease-out;
+            font-size: 1.1rem;
+            border-left: 4px solid #c44569;
+        }
+
+        .gallery-container {
+            position: relative;
+            margin: 50px 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+            height: 500px;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 22px;
+            color: #8b5a9f;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: scale(1.1);
+            color: #c44569;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(139, 90, 159, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: #8b5a9f;
+            transform: scale(1.2);
+        }
+
+        .photo-counter {
+            text-align: center;
+            margin-top: 15px;
+            color: #7a4988;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .carousel {
+                height: 350px;
+            }
+
+            .message {
+                padding: 20px;
+                font-size: 1rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>День Матери <span class="heart">❤</span></h1>
+            <p class="subtitle">Благодарность без границ</p>
+        </header>
+
+        <section class="message">
+            <p>Мама — это тот человек, чья любовь к нам начинается еще до нашего первого вздоха и длится вечно. В этот день хочется сказать тебе простые, но важные слова.</p>
+            <p>Спасибо за твоё терпение, когда я учился ходить и падал, за твои бессонные ночи у моей кровати, за веру в меня, даже когда я сам в себя не верил.</p>
+            <p>Ты научила меня не только говорить и ходить, но и видеть красоту в обычном, находить силы в трудные моменты, ценить искренность и быть человеком.</p>
+            <p>Пусть в твоей жизни будет больше моментов, когда ты можешь просто отдыхать и наслаждаться заслуженным покоем. Ты этого достойна как никто другой.</p>
+        </section>
+
+        <div class="gallery-container">
+            <div class="carousel" id="carousel">
+                <!-- Фотографии будут загружены автоматически -->
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">❮</button>
+                <button class="carousel-btn" id="nextBtn">❯</button>
+            </div>
+            <div class="carousel-indicators" id="indicators">
+                <!-- Индикаторы будут созданы автоматически -->
+            </div>
+            <div class="photo-counter" id="photoCounter"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carousel');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            const photoCounter = document.getElementById('photoCounter');
+
+            let currentIndex = 0;
+            let photos = [];
+            let intervalId;
+
+            // Функция для загрузки фотографий из папки /photos/
+            async function loadPhotos() {
+                try {
+                    // В реальном проекте здесь был бы запрос к серверу для получения списка фото
+                    // Для демонстрации создадим массив с именами файлов
+                    // В реальном проекте замените этот массив на реальные имена файлов из папки /photos/
+                    const photoFiles = [
+                        'photo1.jpg',
+                        'photo2.jpg',
+                        'photo3.jpg',
+                        'photo4.jpg'
+                    ];
+
+                    // Создаем элементы для карусели
+                    photoFiles.forEach((file, index) => {
+                        const carouselItem = document.createElement('div');
+                        carouselItem.className = 'carousel-item';
+
+                        const img = document.createElement('img');
+                        img.src = `/photos/${file}`;
+                        img.alt = `Фотография ${index + 1}`;
+
+                        // Добавляем заглушку, если фото не загрузилось
+                        img.onerror = function() {
+                            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjQwMCIgeT0iMzAwIiBmb250LWZhbWlseT0iR2VvcmdpYSIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2NjYyI+0J/RgNC+0YTQuNC70Yw8L3RleHQ+PC9zdmc+';
+                        };
+
+                        carouselItem.appendChild(img);
+                        carousel.appendChild(carouselItem);
+
+                        // Создаем индикатор
+                        const indicator = document.createElement('div');
+                        indicator.className = 'indicator';
+                        if (index === 0) indicator.classList.add('active');
+                        indicator.addEventListener('click', () => goToSlide(index));
+                        indicatorsContainer.appendChild(indicator);
+                    });
+
+                    photos = document.querySelectorAll('.carousel-item');
+
+                    // Обновляем счетчик фото
+                    updatePhotoCounter();
+
+                    // Запускаем автоматическую смену слайдов
+                    startAutoSlide();
+
+                } catch (error) {
+                    console.error('Ошибка загрузки фотографий:', error);
+                    // Если фото не загрузились, показываем сообщение
+                    carousel.innerHTML = '<div class="carousel-item"><p style="text-align: center; padding: 50px; font-size: 1.2rem;">Добавьте фотографии в папку /photos/</p></div>';
+                }
+            }
+
+            // Функция для обновления счетчика фото
+            function updatePhotoCounter() {
+                photoCounter.textContent = `${currentIndex + 1} / ${photos.length}`;
+            }
+
+            // Функция для перехода к определенному слайду
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            // Функция для обновления карусели
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Обновляем активный индикатор
+                document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+
+                // Обновляем счетчик
+                updatePhotoCounter();
+            }
+
+            // Функция для перехода к следующему слайду
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % photos.length;
+                updateCarousel();
+            }
+
+            // Функция для перехода к предыдущему слайду
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+                updateCarousel();
+            }
+
+            // Функция для запуска автоматической смены слайдов
+            function startAutoSlide() {
+                intervalId = setInterval(nextSlide, 5000); // Смена каждые 5 секунд
+            }
+
+            // Функция для остановки автоматической смены слайдов
+            function stopAutoSlide() {
+                clearInterval(intervalId);
+            }
+
+            // Обработчики событий для кнопок
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                prevSlide();
+                startAutoSlide();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                nextSlide();
+                startAutoSlide();
+            });
+
+            // Останавливаем автоматическую смену при наведении на карусель
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+
+            // Загружаем фотографии
+            loadPhotos();
+        });
+    </script>
+</body>
+</html>
